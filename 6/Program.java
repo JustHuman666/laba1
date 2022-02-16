@@ -1,10 +1,11 @@
 public class Program {
     public static void main(String[] args) throws InterruptedException {
-        
+        long startTime = System.currentTimeMillis();
         BaseCounter();
         // SyncronizedCounter();
         // SyncronizedLockedCounter();
         // SyncronizedBlockedCounter();
+        System.out.println((double) (System.currentTimeMillis() - startTime) + " milliseconds");
         
     }
 
@@ -27,12 +28,18 @@ public class Program {
         ICounter counter = new SyncCounter();
         CounterThread increase = new CounterThread(true,counter);
         CounterThread decrease = new CounterThread(false,counter);
+        CounterThread increase2 = new CounterThread(true,counter);
+        CounterThread decrease2 = new CounterThread(false,counter);
 
         increase.start();
         decrease.start();
+        increase2.start();
+        decrease2.start();
 
         increase.join();
         decrease.join();
+        increase2.join();
+        decrease2.join();
 
         counter.Write();
     }
@@ -41,12 +48,18 @@ public class Program {
         ICounter counter = new LockedCounter();
         CounterThread increase = new CounterThread(true,counter);
         CounterThread decrease = new CounterThread(false,counter);
+        CounterThread increase2 = new CounterThread(true,counter);
+        CounterThread decrease2 = new CounterThread(false,counter);
 
         increase.start();
         decrease.start();
+        increase2.start();
+        decrease2.start();
 
         increase.join();
         decrease.join();
+        increase2.join();
+        decrease2.join();
 
         counter.Write();
     }
@@ -55,12 +68,18 @@ public class Program {
         ICounter counter = new SyncBlockedCounter();
         CounterThread increase = new CounterThread(true,counter);
         CounterThread decrease = new CounterThread(false,counter);
+        CounterThread increase2 = new CounterThread(true,counter);
+        CounterThread decrease2 = new CounterThread(false,counter);
 
         increase.start();
         decrease.start();
+        increase2.start();
+        decrease2.start();
 
         increase.join();
         decrease.join();
+        increase2.join();
+        decrease2.join();
 
         counter.Write();
     }

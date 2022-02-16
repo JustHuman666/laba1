@@ -81,6 +81,14 @@ public class Environment extends JFrame {
                     thread.start();
                 }
 
+                // for (int i = 0; i < 10; i++) {
+                //     Ball ball = new Ball(canvas, Color.red, x, y);
+                //     canvas.addBall(ball);
+                //     BallThread thread = new BallThread(ball);
+                //     thread.setPriority(10);
+                //     thread.start();
+                // }
+
                 Ball priorityBall = new Ball(canvas, Color.red, x, y);
                 canvas.addBall(priorityBall);
                 BallThread priorityThread = new BallThread(priorityBall);

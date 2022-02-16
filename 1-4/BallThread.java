@@ -30,7 +30,7 @@ public class BallThread extends Thread {
 
                 if (ball.ifBallInHole()) {
 
-                    ball.isInGame= false;
+                    ball.isInGame = false;
                     break;
                 }
 
